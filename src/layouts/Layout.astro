@@ -1,0 +1,79 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import { Breadcrumbs } from "astro-breadcrumbs";
+import { getCollection } from 'astro:content';
+import "astro-breadcrumbs/breadcrumbs.scss"
+import "../styles/custom-breadcrumbs.scss"
+import CodeEditor from '../components/CodeEditor.astro'
+import Modal  from '../components/Modal.astro'
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css'
+
+const allPosts = [
+  ...(await getCollection('javascript')),
+  ...(await getCollection('html')),
+  ...(await getCollection('css')),
+  ...(await getCollection('bases_de_datos')),
+  ...(await getCollection('nodejs')),
+  ...(await getCollection('react')),
+];
+
+
+let currentPath = Astro.url.pathname;
+
+if (currentPath !== '/' && currentPath.endsWith('/')) {
+    currentPath = currentPath.slice(0, -1);
+}
+
+const isRoot = currentPath === '/' || currentPath === '/astro-proyect';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ViewTransitions />
+		
+	</head>
+	<body>
+		<header>
+			<Navbar posts={allPosts}/>
+		</header>
+		<div class="back-breadcrumbs">
+			{isRoot ? "" : 
+				<Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false}>
+					<svg
+						slot="separator"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<polyline points="9 18 15 12 9 6"></polyline>
+					</svg>
+				</Breadcrumbs>
+			}
+		</div>
+		<main transition:animate="slide">
+			<slot />
+		</main>
+		<Modal>
+			<CodeEditor/>
+	  	</Modal>
+	</body>
+</html>

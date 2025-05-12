@@ -1,0 +1,77 @@
+---
+interface Props {
+  closeText?: string
+  children?: HTMLElement | HTMLElement[]
+}
+
+const { closeText = 'Close' } = Astro.props
+---
+
+<dialog class="modal">
+  <div class="modal__inner">
+    <div class="modal__close">
+      <button><img src="/astro-proyect/images/x_icon.svg"></button>
+    </div>
+    <div class="modal__content">
+      <slot>Modal description.</slot>
+    </div>
+
+  </div>
+</dialog>
+
+
+<script>
+  type FocusableElement =
+    | HTMLAnchorElement
+    | HTMLButtonElement
+    | HTMLInputElement
+    | HTMLTextAreaElement
+    | HTMLSelectElement
+    | HTMLDetailsElement
+
+  // variables
+  let modals = document.querySelectorAll<HTMLDialogElement>('.modal')
+
+  // abort controllers for global event listeners
+  let trapFocusController: AbortController | undefined
+  let keydownController: AbortController | undefined
+
+  /*const getKeyboardFocusableElements = (element: HTMLElement) => {
+    return [
+      ...element.querySelectorAll<FocusableElement>(
+        'a, button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
+      ),
+    ].filter((el) => !el.hasAttribute('disabled'))
+  }*/
+
+  const closeModal = () => {
+    modals.forEach((modal) => {
+      const modalId = modal.getAttribute('aria-labelledby')
+      modal.close()
+      trapFocusController?.abort()
+      keydownController?.abort()
+      modal.dispatchEvent(new CustomEvent('modal-close', { bubbles: true }))
+    })
+  }
+
+  // execution
+  modals.forEach((modal) => {
+    const modalCloseButton = modal.querySelector('.modal__close button')
+    modalCloseButton!.addEventListener('click', closeModal)
+  })
+
+  window.close = closeModal
+
+  // Listen for view transitions
+  document.addEventListener('astro:after-swap', () => {
+    // reset variables
+    modals = document.querySelectorAll<HTMLDialogElement>('.modal')
+
+    // execution
+    modals.forEach((modal) => {
+      const modalCloseButton = modal.querySelector('.modal__close button')
+
+      modalCloseButton!.addEventListener('click', closeModal)
+    })
+  })
+</script>

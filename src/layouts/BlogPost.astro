@@ -1,0 +1,21 @@
+---
+import Layout from './Layout.astro';
+
+type Props = {
+    title: string;    
+};
+
+const { title } = Astro.props as Props;
+
+---
+<Layout title="Documentación FullStack">
+        <article>
+            <div class="prose">
+                <div class="title pageTitle">
+                    <h1>{title}</h1>
+                    <img src="/astro-proyect/images/filled_icon.svg" alt="logo_programacion" class="logo_codigo">
+                </div>
+                <slot /> <!-- Slot para contenido dinámico -->
+            </div>
+        </article>
+</Layout>
