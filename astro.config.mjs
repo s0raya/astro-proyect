@@ -5,5 +5,6 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
+  site: 'https://s0raya.github.io/astrp-proyect',
   base: '/astro-proyect/',
 });
