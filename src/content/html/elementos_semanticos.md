@@ -17,6 +17,8 @@ Los elementos semánticos de HTML son aquellos que describen claramente su prop�
 6. `<aside>`: Contenido relacionado lateralmente con el contenido principal.
 7. `<main>`: Indica el contenido principal de la página.
 
+<span></span>
+
 ```html
 <header>
     <h1>Mi sitio web</h1>
