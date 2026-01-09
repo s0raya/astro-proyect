@@ -1,7 +1,7 @@
 ---
 title: Destructuring y Spread Operator
-description: "esta es la descripcion de destructuring"
-pubDate: '01/03/2024'
+description: ""
+pubDate: '01/11/2024'
 collection: javascript
 ---
 

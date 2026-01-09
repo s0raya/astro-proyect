@@ -1,7 +1,7 @@
 ---
 title: Condicionales
-description: "esta es la descripcion de condicionales"
-pubDate: '01/03/2024'
+description: ""
+pubDate: '01/04/2024'
 collection: javascript
 ---
 

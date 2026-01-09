@@ -1,7 +1,7 @@
 ---
 title: Variables
-description: "esta es la descripcion de variables"
-pubDate: '01/03/2024'
+description: ""
+pubDate: '01/01/2024'
 collection: javascript
 ---
 

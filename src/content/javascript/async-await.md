@@ -1,7 +1,7 @@
 ---
 title: Async-await
-description: "esta es la descripcion de async await"
-pubDate: '01/03/2024'
+description: ""
+pubDate: '01/13/2024'
 collection: javascript
 ---
 

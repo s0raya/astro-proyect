@@ -1,7 +1,7 @@
 ---
 title: setInterval y setTimeOut
-description: "esta es la descripcion de setInterval y setTimeOut"
-pubDate: '01/03/2024'
+description: ""
+pubDate: '01/14/2024'
 collection: javascript
 ---
 

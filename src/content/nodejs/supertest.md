@@ -1,7 +1,7 @@
 ---
 title: Supertest
-description: "esta es la descripcion de Supertest"
-pubDate: '01/03/2024'
+description: ""
+pubDate: '08/03/2024'
 collection: nodejs
 ---
 

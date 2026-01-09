@@ -1,7 +1,7 @@
 ---
 title: Funciones
-description: "esta es la descripcion de funciones"
-pubDate: '01/03/2024'
+description: ""
+pubDate: '01/06/2024'
 collection: javascript
 ---
 

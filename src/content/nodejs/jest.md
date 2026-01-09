@@ -1,7 +1,7 @@
 ---
 title: Jest
-description: "esta es la descripcion de Jest"
-pubDate: '01/03/2024'
+description: ""
+pubDate: '07/03/2024'
 collection: nodejs
 ---
 
