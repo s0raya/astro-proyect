@@ -1,4 +1,4 @@
-# 📚 Portafolio FullStack Developer
+# 📚 Documentación FullStack Developer
 
 Un sitio web de documentación construido con **Astro**, que presenta contenido educativo sobre desarrollo FullStack, incluyendo fundamentos de programación, desarrollo backend y frontend.
 
